@@ -16,12 +16,11 @@ public class SalesView {
 
     // Здесь, создайте конструктор данного класса,
     // который в параметре содержит переменную типа модели.
-    public SalesView( Product model) {
+    public SalesView(Product model) {
         this.name = model.getName();
         this.quantity = model.getQuantity();
         this.price = model.getPrice();
     }
-
 
     public void getInputs(Product model) {
 
@@ -32,7 +31,7 @@ public class SalesView {
         // ввода соответствующего значения, валидацию значения
         // через валидатор, установку валидного значения через модель.
         System.out.println(title);
-        Validator validator=new Validator();
+        Validator validator = new Validator();
         model.setName(validator.validateName(scanner));
 
         title = "Введите количество: ";
@@ -52,6 +51,7 @@ public class SalesView {
         scanner.close();
     }
 
-    public void getOutput(String output) {System.out.println(output);
+    public void getOutput(String output) {
+        System.out.println(output);
     }
 }

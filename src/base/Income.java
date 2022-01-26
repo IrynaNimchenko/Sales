@@ -1,6 +1,5 @@
 package base;
 
-
 import models.Product;
 
 public interface Income {
@@ -9,8 +8,8 @@ public interface Income {
 
     double calculateIncome(Product product);
 
-
     double calculateNetIncome();
+
     double calculateNetIncome(Product product);
 
 }

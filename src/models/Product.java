@@ -15,17 +15,14 @@ public class Product implements Fiscal, Income {
     // здесь ...
     private static final double TAX_RATE = 0.05; //объявила
 
-
     // Обеспечьте доступ к полям модели через getters и setters
     // здесь ...
     public String getName() {
         return name;
     }
-
     public int getQuantity() {
         return quantity;
     }
-
     public double getPrice() {
         return price;
     }
@@ -33,11 +30,9 @@ public class Product implements Fiscal, Income {
     public void setName(String name) {
         this.name = name;
     }
-
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }
@@ -46,16 +41,13 @@ public class Product implements Fiscal, Income {
 
     // Расчёт дохода от продаж, до уплаты налога.
     // здесь ...
-
-
     @Override
     public double calculateIncome() {
-        return quantity*price;
+        return quantity * price;
     }
 
     @Override
     public double calculateIncome(Product product) {
-
         return quantity * price;
     }
 
@@ -66,17 +58,10 @@ public class Product implements Fiscal, Income {
         return calculateIncome() * TAX_RATE;
     }
 
-//    @Override
-//    public double calculateTax(Product product) {
-//        return calculateIncome(product) * TAX_RATE;
-//    }
-
     // Расчёт чистого дохода, после уплаты налога.
     // здесь ...
-
     @Override
     public double calculateNetIncome() {
-
         return calculateIncome() - calculateTax();
     }
 

@@ -1,6 +1,5 @@
 package controllers;
 
-import base.Income;
 import models.Product;
 import utils.Rounder;
 import views.SalesView;
