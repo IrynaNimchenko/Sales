@@ -13,7 +13,7 @@ public class Product implements Fiscal, Income {
     private double price;
     // Налоговоу ставку объявите в виде константы
     // здесь ...
-    private static final double TAX_RATE=0.05; //оъявила
+    private static final double TAX_RATE = 0.05; //объявила
 
 
     // Обеспечьте доступ к полям модели через getters и setters
@@ -47,22 +47,41 @@ public class Product implements Fiscal, Income {
     // Расчёт дохода от продаж, до уплаты налога.
     // здесь ...
 
+
     @Override
-    public double calculateIncome(int quantity, double price){
+    public double calculateIncome() {
         return quantity*price;
-    };
+    }
+
+    @Override
+    public double calculateIncome(Product product) {
+
+        return quantity * price;
+    }
 
     // Расчёт суммы налога с продаж.
     // здесь ...
     @Override
-    public double calculateTax(double income, TAX_RATE){
-        return income*TAX_RATE;
+    public double calculateTax() {
+        return calculateIncome() * TAX_RATE;
     }
+
+//    @Override
+//    public double calculateTax(Product product) {
+//        return calculateIncome(product) * TAX_RATE;
+//    }
 
     // Расчёт чистого дохода, после уплаты налога.
     // здесь ...
+
     @Override
-    public double calculateNetIncome(double income, double tax){
-        return income-tax;
+    public double calculateNetIncome() {
+
+        return calculateIncome() - calculateTax();
+    }
+
+    @Override
+    public double calculateNetIncome(Product product) {
+        return calculateIncome(product) - calculateTax();
     }
 }

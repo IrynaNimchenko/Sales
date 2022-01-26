@@ -1,5 +1,6 @@
 package controllers;
 
+import base.Income;
 import models.Product;
 import utils.Rounder;
 import views.SalesView;
@@ -16,26 +17,20 @@ public class ProductController {
         this.view = view;
     }
 
-
     public void runApp() {
-        //? нужно ли циклить или это единичный расчет?
-        view.getInputs();
+        view.getInputs(model);
         // Здесь, реализуйте:
         // 1) получение имени товара через модель;
-        System.out.print("Наименование товара: " + model.getName()); //или каждая строка должна быть реализована через getOutput
-        // 2) вызов методов расчетов доходов и налога; //? здесь чистый доход или до уплаты налогов
-        double income = model.calculateIncome();
+        System.out.println("Наименование товара: " + model.getName()); //или каждая строка должна быть реализована через getOutput
+        // 2) вызов методов расчетов доходов и налога; //? переделать через перегруженный метод
+        double income = model.calculateIncome(model);
         double tax = model.calculateTax();
-        double netIncome = model.calculateNetIncome();
+        double netIncome = model.calculateNetIncome(model);
         // 3) округление расчетных значений;
         Rounder rounder = new Rounder();
-        System.out.println("Общий доход, (грн): " + rounder.roundValue(income, 2));
-        System.out.println("Сумма налога (грн.): " + rounder.roundValue(tax, 2));
-        System.out.println("Чистый доход (грн.): " + rounder.roundValue(netIncome, 2));
         // 4) вывод расчетов по заданному формату.
 
-
-        String output = "[здесь должен быть вывод по формату]"; //здесь тип String условный и его можно заменить?
+        String output = "Общий доход, (грн): " + rounder.roundValue(income) + "\nСумма налога (грн.): " + rounder.roundValue(tax) + "\nЧистый доход (грн.): " + rounder.roundValue(netIncome);
 
         view.getOutput(output);
     }

@@ -1,12 +1,11 @@
 package utils;
 
+import java.text.DecimalFormat;
+
 public class Rounder {
 
-    private int decimalPlace;
-    private double decimalValue;
-
-    public static Double roundValue(double decimalValue, int decimalPlace) {
-        double scale = Math.pow(10, decimalPlace);
-        return Math.ceil(decimalValue * scale) / scale;
+    public static String roundValue(double decimalValue) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        return decimalFormat.format(decimalValue);
     }
 }
