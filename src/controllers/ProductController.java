@@ -17,7 +17,8 @@ public class ProductController {
     }
 
     public void runApp() {
-        view.getInputs(model);
+        view.getInputs();
+        System.out.println(model.getName());
         // Здесь, реализуйте:
         // 1) получение имени товара через модель;
         System.out.println("Наименование товара: " + model.getName()); //или каждая строка должна быть реализована через getOutput
@@ -26,10 +27,9 @@ public class ProductController {
         double tax = model.calculateTax();
         double netIncome = model.calculateNetIncome(model);
         // 3) округление расчетных значений;
-        Rounder rounder = new Rounder();
         // 4) вывод расчетов по заданному формату.
 
-        String output = "Общий доход, (грн): " + rounder.roundValue(income) + "\nСумма налога (грн.): " + rounder.roundValue(tax) + "\nЧистый доход (грн.): " + rounder.roundValue(netIncome);
+        String output = "Общий доход, (грн): " + Rounder.roundValue(income) + "\nСумма налога (грн.): " + Rounder.roundValue(tax) + "\nЧистый доход (грн.): " + Rounder.roundValue(netIncome);
 
         view.getOutput(output);
     }
