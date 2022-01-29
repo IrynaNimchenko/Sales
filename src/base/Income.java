@@ -11,5 +11,4 @@ public interface Income {
     double calculateNetIncome();
 
     double calculateNetIncome(Product product);
-
 }

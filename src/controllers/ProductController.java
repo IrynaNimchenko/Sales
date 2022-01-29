@@ -18,11 +18,10 @@ public class ProductController {
 
     public void runApp() {
         view.getInputs();
-        System.out.println(model.getName());
         // Здесь, реализуйте:
         // 1) получение имени товара через модель;
-        System.out.println("Наименование товара: " + model.getName()); //или каждая строка должна быть реализована через getOutput
-        // 2) вызов методов расчетов доходов и налога; //? переделать через перегруженный метод
+        System.out.println("Наименование товара: " + model.getName());
+        // 2) вызов методов расчетов доходов и налога;
         double income = model.calculateIncome(model);
         double tax = model.calculateTax();
         double netIncome = model.calculateNetIncome(model);
