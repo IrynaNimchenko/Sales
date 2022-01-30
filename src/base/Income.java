@@ -6,9 +6,9 @@ public interface Income {
 
     double calculateIncome();
 
-    double calculateIncome(Product product);
+    double calculateIncome(double price, int quantity);
 
     double calculateNetIncome();
 
-    double calculateNetIncome(Product product);
+    double calculateNetIncome(double price, int quantity);
 }

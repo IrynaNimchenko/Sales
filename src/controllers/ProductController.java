@@ -6,7 +6,6 @@ import views.SalesView;
 
 // Controller
 public class ProductController {
-
     Product model;
     SalesView view;
 
@@ -22,9 +21,9 @@ public class ProductController {
         // 1) получение имени товара через модель;
         System.out.println("Наименование товара: " + model.getName());
         // 2) вызов методов расчетов доходов и налога;
-        double income = model.calculateIncome(model);
+        double income = model.calculateIncome(model.getPrice(), model.getQuantity());
         double tax = model.calculateTax();
-        double netIncome = model.calculateNetIncome(model);
+        double netIncome = model.calculateNetIncome(model.getPrice(), model.getQuantity());
         // 3) округление расчетных значений;
         // 4) вывод расчетов по заданному формату.
 

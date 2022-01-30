@@ -19,6 +19,14 @@ public class Product implements Fiscal, Income {
         return name;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -39,7 +47,7 @@ public class Product implements Fiscal, Income {
     }
 
     @Override
-    public double calculateIncome(Product product) {
+    public double calculateIncome(double price, int quantity) {
         return quantity * price;
     }
 
@@ -56,7 +64,8 @@ public class Product implements Fiscal, Income {
     }
 
     @Override
-    public double calculateNetIncome(Product product) {
-        return calculateIncome(product) - calculateTax();
+    public double calculateNetIncome(double price, int quantity) {
+        return calculateIncome(price, quantity) - calculateTax();
     }
+
 }
