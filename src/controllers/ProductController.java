@@ -22,8 +22,8 @@ public class ProductController {
         System.out.println("Наименование товара: " + model.getName());
         // 2) вызов методов расчетов доходов и налога;
         double income = model.calculateIncome(model.getPrice(), model.getQuantity());
-        double tax = model.calculateTax();
-        double netIncome = model.calculateNetIncome(model.getPrice(), model.getQuantity());
+        double tax = model.calculateTax(income);
+        double netIncome = model.calculateIncome(income, tax);
         // 3) округление расчетных значений;
         // 4) вывод расчетов по заданному формату.
 

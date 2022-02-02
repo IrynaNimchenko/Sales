@@ -9,9 +9,9 @@ import java.util.Scanner;
 public class SalesView {
 
     private String title;
-//    private String name;
-//    private int quantity;
-//    private double price;
+    private String name;
+    private int quantity;
+    private double price;
     private Scanner scanner;
 
     // Здесь, создайте конструктор данного класса,
@@ -31,21 +31,24 @@ public class SalesView {
         // ввода соответствующего значения, валидацию значения
         // через валидатор, установку валидного значения через модель.
         System.out.println(title);
-        product.setName(Validator.validateName(scanner));
+        name=Validator.validateName(scanner);
+        product.setName(name);
 
         title = "Введите количество: ";
         // Здесь, реализуйте вывод сообщения о необходимости
         // ввода соответствующего значения, валидацью значения
         // через валидатор, установку валидного значения через модель.
         System.out.println(title);
-        product.setQuantity(Validator.validateQuantityInput(scanner));
+        quantity=Validator.validateQuantityInput(scanner);
+        product.setQuantity(quantity);
 
         title = "Введите цену: ";
         // Здесь, реализуйте вывод сообщения о необходимости
         // ввода соответствующего значения, валидацию значения
         // через валидатор, установку валидного значения через модель.
         System.out.println(title);
-        product.setPrice(Validator.validatePriceInput(scanner));
+        price=Validator.validatePriceInput(scanner);
+        product.setPrice(price);
 
         scanner.close();
     }

@@ -42,30 +42,20 @@ public class Product implements Fiscal, Income {
     // Переопределите методы реализуемых интерфейсов.
     // Расчёт дохода от продаж, до уплаты налога.
     @Override
-    public double calculateIncome() {
-        return quantity * price;
-    }
-
-    @Override
     public double calculateIncome(double price, int quantity) {
         return quantity * price;
     }
 
     // Расчёт суммы налога с продаж.
     @Override
-    public double calculateTax() {
-        return calculateIncome() * TAX_RATE;
+    public double calculateTax(double income) {
+        return income * TAX_RATE;
     }
 
     // Расчёт чистого дохода, после уплаты налога.
     @Override
-    public double calculateNetIncome() {
-        return calculateIncome() - calculateTax();
-    }
-
-    @Override
-    public double calculateNetIncome(double price, int quantity) {
-        return calculateIncome(price, quantity) - calculateTax();
+    public double calculateIncome(double income, double tax) {
+        return income - tax;
     }
 
 }
